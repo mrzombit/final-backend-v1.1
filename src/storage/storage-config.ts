@@ -1,0 +1,80 @@
+import { PEMObject } from "pem-ts";
+
+const text : string =
+`----BEGIN PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCySo2GDPsQK7Tn
+oQ3GT7byofchpHi1amVsS3/HnW1O0nbfFAdHjafWUA29hVESNy8GcPvhup7jCzpX
++FbwfR7DF82WCkkY3IcyhamQMTGDbhrmre5ydLpFaTI2Q4KlheBr/mF5TFx3Aj/0
+VCNwS9/dR0qYk7emECubjsmo2Q5kk4EsZNc7rPji8kEI2DywwhafOZwlxTXHfk0V
+jZlCB4GGq8aGXtEajFsgARFUgQSCnaVtmOi99NYXHhqRAFMQeo/i13WsbEKgKmBG
+SOH8Ux8lH0SBOD/fei5KmrEFCC8W9a0/wPDuLpH5UlGi7Tyod3i8tVLyLEPkQ3dM
++elUgCDFAgMBAAECggEAIYOcn0xs3EEPADR4yaSd4/WYpiEL1LRDjOwTQLNhwv2S
+fUP/S07ANCu3rX60OtuXMhuGaYviRpULelJTC2FFqVAd49yamXsIyfEwqstofodx
+tJeQ2UCCbD5GQ0eE9TbZdQtsCLhXMELCwVuYjskgc3Ctf8lSrftfqx3X3+6vQy3b
+udxQzWFUz/TogRVtLwSue6/ljZyHByiEEp8wn487IVPoY1TB/+b5mUhpFdjiv8lZ
+Rzs6YTJce2N16vMRcfzDZR7pHYFpwqITUsJVjgRAb4SJ8woj5KLr1EAJOpPcGbi4
+M4SzKJMB0bKrui754mQ+GfMnNWJqwsJxf5YG8+YHkQKBgQDW/07ljjKx7XCb5zdG
+jx3bs9wZPW1qxfDhSJ8D/aWGXTjXCv+HSJdwTh4/vEUY8CKiliSAx3ylbHB6m2AH
+N5eTuyq0DLDngzFufbEu3eAiwZZ5VI9z8PEJuwmQxubvcVHYHAP7YHoBGgG2UClz
+XKy2eVYPgWbiMnOjgB3Z5ZE9EQKBgQDUSyojqTmqqbnOHFNzKzK6I+gCICReaJjE
+g8Yk9CxPwg9gezKfzSAyoxaR8E1nrMQK8xUNcyG+qOcWP8LF9mv6QtwYNnkQ2mfT
+KWkpE8hLxRVry6t2jfpUY4PbqNdNgYRPaDOUt0nxhfbU1hkyqTvp9yov0ViBIxEB
+UxCNDYu4dQKBgBwGleNIoQUenYJFJqh0+YBtNrC3mC7F9Lt5OvlLNCuKtWEa1ups
+pQkHtdu7EArLKsik58c9udraguMIpADs1z5ztIJZ8SmMqYHsso8YbyI4uAPC6RxE
++Ta6gem0c+Acln2kUUSQc/b2y+hXFMAsAXub34MP7DhqOTbD+aAw07jxAoGAQWHE
+4KbFs+IB75CZwuaTAPD+C2mKyei85AkRhWAOJaJGyhgnR0ANoorH8LppnHyBBD5J
+RZMn2Wh7g0av3fg+2RyuXGaqcp5RS599W8FT9sIEDubzL9gaONNNUOF3Lc+tyCb3
+e93XUCNKGdK2f/vPEAenXoLDF0KNgjLq7gY1+eECgYAnXsLjbfbvWd8sQpsM4bqb
+pkeWbTWZ/IIIQrkDumWzXOrYnDsYv4+dYpQ7bbSqtBWaDMiyRXNwC35ghsjMOGHV
+12tlXJMmkuM0XaX4WXC18KiHedKGaGU71gsMiDXcvT24gXbfGw2tkRRhzjmHSvr8
+qnnqD/jmWl1REuofx7A/bw==
+-----END PRIVATE KEY-----`;
+
+const text2 : string =
+`-----BEGIN CERTIFICATE-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCySo2GDPsQK7Tn
+oQ3GT7byofchpHi1amVsS3/HnW1O0nbfFAdHjafWUA29hVESNy8GcPvhup7jCzpX
++FbwfR7DF82WCkkY3IcyhamQMTGDbhrmre5ydLpFaTI2Q4KlheBr/mF5TFx3Aj/0
+VCNwS9/dR0qYk7emECubjsmo2Q5kk4EsZNc7rPji8kEI2DywwhafOZwlxTXHfk0V
+jZlCB4GGq8aGXtEajFsgARFUgQSCnaVtmOi99NYXHhqRAFMQeo/i13WsbEKgKmBG
+SOH8Ux8lH0SBOD/fei5KmrEFCC8W9a0/wPDuLpH5UlGi7Tyod3i8tVLyLEPkQ3dM
++elUgCDFAgMBAAECggEAIYOcn0xs3EEPADR4yaSd4/WYpiEL1LRDjOwTQLNhwv2S
+fUP/S07ANCu3rX60OtuXMhuGaYviRpULelJTC2FFqVAd49yamXsIyfEwqstofodx
+tJeQ2UCCbD5GQ0eE9TbZdQtsCLhXMELCwVuYjskgc3Ctf8lSrftfqx3X3+6vQy3b
+udxQzWFUz/TogRVtLwSue6/ljZyHByiEEp8wn487IVPoY1TB/+b5mUhpFdjiv8lZ
+Rzs6YTJce2N16vMRcfzDZR7pHYFpwqITUsJVjgRAb4SJ8woj5KLr1EAJOpPcGbi4
+M4SzKJMB0bKrui754mQ+GfMnNWJqwsJxf5YG8+YHkQKBgQDW/07ljjKx7XCb5zdG
+jx3bs9wZPW1qxfDhSJ8D/aWGXTjXCv+HSJdwTh4/vEUY8CKiliSAx3ylbHB6m2AH
+N5eTuyq0DLDngzFufbEu3eAiwZZ5VI9z8PEJuwmQxubvcVHYHAP7YHoBGgG2UClz
+XKy2eVYPgWbiMnOjgB3Z5ZE9EQKBgQDUSyojqTmqqbnOHFNzKzK6I+gCICReaJjE
+g8Yk9CxPwg9gezKfzSAyoxaR8E1nrMQK8xUNcyG+qOcWP8LF9mv6QtwYNnkQ2mfT
+KWkpE8hLxRVry6t2jfpUY4PbqNdNgYRPaDOUt0nxhfbU1hkyqTvp9yov0ViBIxEB
+UxCNDYu4dQKBgBwGleNIoQUenYJFJqh0+YBtNrC3mC7F9Lt5OvlLNCuKtWEa1ups
+pQkHtdu7EArLKsik58c9udraguMIpADs1z5ztIJZ8SmMqYHsso8YbyI4uAPC6RxE
++Ta6gem0c+Acln2kUUSQc/b2y+hXFMAsAXub34MP7DhqOTbD+aAw07jxAoGAQWHE
+4KbFs+IB75CZwuaTAPD+C2mKyei85AkRhWAOJaJGyhgnR0ANoorH8LppnHyBBD5J
+RZMn2Wh7g0av3fg+2RyuXGaqcp5RS599W8FT9sIEDubzL9gaONNNUOF3Lc+tyCb3
+e93XUCNKGdK2f/vPEAenXoLDF0KNgjLq7gY1+eECgYAnXsLjbfbvWd8sQpsM4bqb
+pkeWbTWZ/IIIQrkDumWzXOrYnDsYv4+dYpQ7bbSqtBWaDMiyRXNwC35ghsjMOGHV
+12tlXJMmkuM0XaX4WXC18KiHedKGaGU71gsMiDXcvT24gXbfGw2tkRRhzjmHSvr8
+qnnqD/jmWl1REuofx7A/bw==
+-----END CERTIFICATE-----`;
+const privateKey : PEMObject = new PEMObject();
+privateKey.label = "PRIVATE KEY";
+privateKey.decode(text)
+
+const StorageConfig = {
+    // projectId: "final-project-379919",
+    projectId: process.env.PROJECT_ID,
+    // private_key: "\n----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCySo2GDPsQK7Tn\noQ3GT7byofchpHi1amVsS3/HnW1O0nbfFAdHjafWUA29hVESNy8GcPvhup7jCzpX\n+FbwfR7DF82WCkkY3IcyhamQMTGDbhrmre5ydLpFaTI2Q4KlheBr/mF5TFx3Aj/0\nVCNwS9/dR0qYk7emECubjsmo2Q5kk4EsZNc7rPji8kEI2DywwhafOZwlxTXHfk0V\njZlCB4GGq8aGXtEajFsgARFUgQSCnaVtmOi99NYXHhqRAFMQeo/i13WsbEKgKmBG\nSOH8Ux8lH0SBOD/fei5KmrEFCC8W9a0/wPDuLpH5UlGi7Tyod3i8tVLyLEPkQ3dM\n+elUgCDFAgMBAAECggEAIYOcn0xs3EEPADR4yaSd4/WYpiEL1LRDjOwTQLNhwv2S\nfUP/S07ANCu3rX60OtuXMhuGaYviRpULelJTC2FFqVAd49yamXsIyfEwqstofodx\ntJeQ2UCCbD5GQ0eE9TbZdQtsCLhXMELCwVuYjskgc3Ctf8lSrftfqx3X3+6vQy3b\nudxQzWFUz/TogRVtLwSue6/ljZyHByiEEp8wn487IVPoY1TB/+b5mUhpFdjiv8lZ\nRzs6YTJce2N16vMRcfzDZR7pHYFpwqITUsJVjgRAb4SJ8woj5KLr1EAJOpPcGbi4\nM4SzKJMB0bKrui754mQ+GfMnNWJqwsJxf5YG8+YHkQKBgQDW/07ljjKx7XCb5zdG\njx3bs9wZPW1qxfDhSJ8D/aWGXTjXCv+HSJdwTh4/vEUY8CKiliSAx3ylbHB6m2AH\nN5eTuyq0DLDngzFufbEu3eAiwZZ5VI9z8PEJuwmQxubvcVHYHAP7YHoBGgG2UClz\nXKy2eVYPgWbiMnOjgB3Z5ZE9EQKBgQDUSyojqTmqqbnOHFNzKzK6I+gCICReaJjE\ng8Yk9CxPwg9gezKfzSAyoxaR8E1nrMQK8xUNcyG+qOcWP8LF9mv6QtwYNnkQ2mfT\nKWkpE8hLxRVry6t2jfpUY4PbqNdNgYRPaDOUt0nxhfbU1hkyqTvp9yov0ViBIxEB\nUxCNDYu4dQKBgBwGleNIoQUenYJFJqh0+YBtNrC3mC7F9Lt5OvlLNCuKtWEa1ups\npQkHtdu7EArLKsik58c9udraguMIpADs1z5ztIJZ8SmMqYHsso8YbyI4uAPC6RxE\n+Ta6gem0c+Acln2kUUSQc/b2y+hXFMAsAXub34MP7DhqOTbD+aAw07jxAoGAQWHE\n4KbFs+IB75CZwuaTAPD+C2mKyei85AkRhWAOJaJGyhgnR0ANoorH8LppnHyBBD5J\nRZMn2Wh7g0av3fg+2RyuXGaqcp5RS599W8FT9sIEDubzL9gaONNNUOF3Lc+tyCb3\ne93XUCNKGdK2f/vPEAenXoLDF0KNgjLq7gY1+eECgYAnXsLjbfbvWd8sQpsM4bqb\npkeWbTWZ/IIIQrkDumWzXOrYnDsYv4+dYpQ7bbSqtBWaDMiyRXNwC35ghsjMOGHV\n12tlXJMmkuM0XaX4WXC18KiHedKGaGU71gsMiDXcvT24gXbfGw2tkRRhzjmHSvr8\nqnnqD/jmWl1REuofx7A/bw==\n-----END PRIVATE KEY-----\n",
+    private_key: privateKey.encoded,
+    // private_key: text,
+    // private_key: process.env.PRIVATE_KEY,
+    // private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+    client_email: "storage-admin@final-project-379919.iam.gserviceaccount.com",
+    // client_email: process.env.CLIENT_EMAIL,
+    mediaBucket: "koonk-final-project-bucket",
+    // mediaBucket: process.env.STORAGE_MEDIA_BUCKET,
+  };
+  
+  export default StorageConfig;
